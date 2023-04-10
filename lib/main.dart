@@ -1,3 +1,4 @@
+import 'package:edu_ecommerce_fb_2/screens/AuthScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/HomeScreen.dart';
 import 'package:flutter/material.dart';
 import "package:firebase_core/firebase_core.dart";
@@ -14,6 +15,6 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomeScreen(),);
+    return const MaterialApp(home: AuthScreen(),);
   }
 }
