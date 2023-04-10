@@ -40,6 +40,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 decoration: const InputDecoration(labelText: "Email"),
               ),
               TextFormField(
+                obscureText: true,
                 controller: _password,
                 decoration: const InputDecoration(labelText: "Password"),
               ),
