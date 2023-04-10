@@ -1,20 +1,35 @@
 import 'package:edu_ecommerce_fb_2/screens/AuthScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/HomeScreen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import "package:firebase_core/firebase_core.dart";
 import "firebase_options.dart";
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  runApp(const Application());
+  runApp(Application());
 }
 
 class Application extends StatelessWidget {
-  const Application({super.key});
+  Application({super.key});
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: AuthScreen(),);
+    return MaterialApp(
+        home: StreamBuilder(
+      builder: (BuildContext context, AsyncSnapshot<User?> snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          final User? user = snapshot.data;
+          return user == null ? const AuthScreen() : HomeScreen();
+        }
+        return const Scaffold(
+          body: Center(child: CircularProgressIndicator()),
+        );
+      },
+      stream: _auth.authStateChanges(),
+    ));
   }
 }
