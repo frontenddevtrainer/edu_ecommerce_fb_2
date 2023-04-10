@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "809207343020",
+    "project_id": "my-demo-project-4eea1",
+    "storage_bucket": "my-demo-project-4eea1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809207343020:android:5dc76a80e5fce54dc4bc09",
+        "android_client_info": {
+          "package_name": "com.example.edu_ecommerce_fb_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809207343020-vf3f0cucn9in20bm5j7dfu606d5b7rce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgvTY2Gp-enaOGev_bN0c3bclvhN7WQSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809207343020-vf3f0cucn9in20bm5j7dfu606d5b7rce.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "809207343020-hcu5grngfvic4nps5miq52g137hn31rb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eduEcommerceFb2"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809207343020:android:013c2e1921d1cee2c4bc09",
+        "android_client_info": {
+          "package_name": "com.example.edu_ecommerce_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809207343020-vf3f0cucn9in20bm5j7dfu606d5b7rce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgvTY2Gp-enaOGev_bN0c3bclvhN7WQSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809207343020-vf3f0cucn9in20bm5j7dfu606d5b7rce.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "809207343020-hcu5grngfvic4nps5miq52g137hn31rb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eduEcommerceFb2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
