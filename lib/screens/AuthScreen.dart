@@ -12,29 +12,8 @@ class _AuthScreenState extends State<AuthScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   final _password = TextEditingController();
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   bool _isLogin = false;
 
-  Future<User?> signup() async {
-    try {
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
-              email: _email.text.trim(), password: _password.text.trim());
-      return userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      return null;
-    }
-  }
-
-  Future<User?> signin() async {
-    try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
-          email: _email.text.trim(), password: _password.text.trim());
-      return userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      return null;
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +38,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   ElevatedButton(
                       onPressed: () {
                         if (_isLogin) {
-                          signin();
+                          // signin();
                         } else {
-                          signup();
+                          // signup();
                         }
                       },
                       child: Text(_isLogin ? "Login" : "Sign Up")),

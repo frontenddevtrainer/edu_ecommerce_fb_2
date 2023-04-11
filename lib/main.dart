@@ -1,6 +1,7 @@
 import 'package:edu_ecommerce_fb_2/screens/AuthScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/HomeScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/MessagesScreen.dart';
+import 'package:edu_ecommerce_fb_2/services/auth_service.dart';
 import 'package:edu_ecommerce_fb_2/services/chat_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,9 @@ class Application extends StatelessWidget {
           providers: [
             Provider<ChatService>(
               create: (context) => ChatService(),
+            ),
+            Provider<AuthService>(
+              create: (context) => AuthService(),
             )
           ],
           child: StreamBuilder(

@@ -1,4 +1,6 @@
+import 'package:edu_ecommerce_fb_2/services/auth_service.dart';
 import 'package:edu_ecommerce_fb_2/services/chat_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -13,6 +15,9 @@ class _MessagesScreenState extends State<MessagesScreen> {
   @override
   Widget build(BuildContext context) {
     ChatService chatService = Provider.of<ChatService>(context);
+    AuthService authService = Provider.of<AuthService>(context);
+
+    User? _user = authService.currentUser;
 
     return Scaffold(
         appBar: AppBar(title: const Text("Messages")),
@@ -33,14 +38,15 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       itemCount: list.length,
                       itemBuilder: (context, index) {
                         final message = list[index].value;
+                        final isMyMessage = message["user"] == _user?.uid;
 
                         return ListTile(
                           title: Align(
-                            alignment: Alignment.topRight,
+                            alignment: isMyMessage ? Alignment.topRight : Alignment.topLeft,
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.blue[50],
+                                color: isMyMessage ? Colors.blue[50] : Colors.green[50],
                               ),
                               padding: const EdgeInsets.all(10),
                               child: Text(message["message"]),
@@ -52,7 +58,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                   }
                 }
 
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               },
@@ -69,7 +75,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                 IconButton(
                     onPressed: () async {
                       await chatService.sendMessage(
-                          _messageController.text, "jlkasjdljdadjjdklaD");
+                          _messageController.text, _user?.uid);
                       _messageController.clear();
                     },
                     icon: const Icon(Icons.send))
