@@ -34,7 +34,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                     List<MapEntry<dynamic, dynamic>> list =
                         map.entries.toList();
 
-                    // create message list using list.sort(()=>{})
+                    list.sort((a, b) =>
+                        a.value['timestamp'].compareTo(b.value['timestamp']));
 
                     return ListView.builder(
                       itemCount: list.length,
@@ -44,11 +45,15 @@ class _MessagesScreenState extends State<MessagesScreen> {
 
                         return ListTile(
                           title: Align(
-                            alignment: isMyMessage ? Alignment.topRight : Alignment.topLeft,
+                            alignment: isMyMessage
+                                ? Alignment.topRight
+                                : Alignment.topLeft,
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: isMyMessage ? Colors.blue[50] : Colors.green[50],
+                                color: isMyMessage
+                                    ? Colors.blue[50]
+                                    : Colors.green[50],
                               ),
                               padding: const EdgeInsets.all(10),
                               child: Text(message["message"]),
