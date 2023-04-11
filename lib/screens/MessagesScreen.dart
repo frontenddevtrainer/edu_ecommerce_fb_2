@@ -34,6 +34,8 @@ class _MessagesScreenState extends State<MessagesScreen> {
                     List<MapEntry<dynamic, dynamic>> list =
                         map.entries.toList();
 
+                    // create message list using list.sort(()=>{})
+
                     return ListView.builder(
                       itemCount: list.length,
                       itemBuilder: (context, index) {
