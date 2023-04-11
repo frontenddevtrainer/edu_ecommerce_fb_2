@@ -8,38 +8,40 @@ class MessagesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Expanded(
-            child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return ListTile(
-              title: Align(
-                alignment: Alignment.topRight,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.blue[50],
+        appBar: AppBar(title: const Text("Messages")),
+        body: SafeArea(
+            child: Column(
+          children: [
+            Expanded(
+                child: ListView.builder(
+              itemCount: 5,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue[50],
+                      ),
+                      padding: const EdgeInsets.all(10),
+                      child: const Text("Hello World!!!"),
+                    ),
                   ),
-                  padding: const EdgeInsets.all(10),
-                  child: const Text("Hello World!!!"),
-                ),
-              ),
-            );
-          },
-        )),
-        Container(
-          padding: const EdgeInsets.all(10),
-          child: Row(children: [
-            const Expanded(
-                child: TextField(
-              decoration: InputDecoration(hintText: "Send message."),
+                );
+              },
             )),
-            IconButton(onPressed: () => {}, icon: const Icon(Icons.send))
-          ]),
-        )
-      ],
-    ));
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: Row(children: [
+                const Expanded(
+                    child: TextField(
+                  decoration: InputDecoration(hintText: "Send message."),
+                )),
+                IconButton(onPressed: () => {}, icon: const Icon(Icons.send))
+              ]),
+            )
+          ],
+        )));
   }
 }
