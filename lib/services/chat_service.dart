@@ -7,6 +7,7 @@ class ChatService {
   Stream get messageStream => _dbRef.onValue;
 
   Future<void> sendMessage(message, user) async {
-    await _dbRef.push().set({'message': message, 'user': user});
+    await _dbRef.push().set(
+        {'message': message, 'user': user, 'timestamp': ServerValue.timestamp});
   }
 }
