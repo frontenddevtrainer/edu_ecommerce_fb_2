@@ -1,5 +1,7 @@
+import 'package:edu_ecommerce_fb_2/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -14,9 +16,10 @@ class _AuthScreenState extends State<AuthScreen> {
   final _password = TextEditingController();
   bool _isLogin = false;
 
-
   @override
   Widget build(BuildContext context) {
+    AuthService _authService = Provider.of<AuthService>(context);
+
     return Scaffold(
         appBar: AppBar(title: Text(_isLogin ? "Login" : "Sign Up")),
         body: Padding(
@@ -38,9 +41,9 @@ class _AuthScreenState extends State<AuthScreen> {
                   ElevatedButton(
                       onPressed: () {
                         if (_isLogin) {
-                          // signin();
+                          _authService.signin(_email, _password);
                         } else {
-                          // signup();
+                          _authService.signup(_email, _password);
                         }
                       },
                       child: Text(_isLogin ? "Login" : "Sign Up")),

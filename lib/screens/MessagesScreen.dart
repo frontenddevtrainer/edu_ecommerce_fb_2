@@ -3,6 +3,7 @@ import 'package:edu_ecommerce_fb_2/services/chat_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localization.dart';
 
 class MessagesScreen extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
     User? _user = authService.currentUser;
 
     return Scaffold(
-        appBar: AppBar(title: const Text("Messages")),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.hello_world)),
         body: SafeArea(
             // bottom: false,
             child: Column(
