@@ -52,15 +52,18 @@ class _ImageUploaderState extends State<ImageUploader> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.hello_world)),
-      body: Column(
+      body: SingleChildScrollView(
+          child: Column(
         children: [
-          _image != null
-              ? Image.file(
-                  _image!,
-                  height: 100,
-                  width: 100,
-                )
-              : const Text("No file found"),
+          // Row(
+          //   children: const [
+          //     Flexible(child: Text("dkajhdahdjkahkjdakdhakhdjkaPfor")),
+          //     Flexible(child: Text("dkajhdahdjkahkjdakdhakhdjkaPfor")),
+          //     Flexible(child: Text("dkajhdahdjkahkjdakdhakhdjkaPfor")),
+          //     Flexible(child: Text("dkajhdahdjkahkjdakdhakhdjkaPfor")),
+          //   ],
+          // ),
+          _image != null ? Image.file(_image!) : const Text("No file found"),
           TextButton(
               onPressed: () {
                 _pick();
@@ -75,7 +78,7 @@ class _ImageUploaderState extends State<ImageUploader> {
               ? Text(_imageUrl.toString())
               : const Text("not uploaded.")
         ],
-      ),
+      )),
     ));
   }
 }
