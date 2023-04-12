@@ -2,6 +2,7 @@ import 'package:edu_ecommerce_fb_2/route_observer.dart';
 import 'package:edu_ecommerce_fb_2/screens/AuthScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/HomeScreen.dart';
 import 'package:edu_ecommerce_fb_2/screens/MessagesScreen.dart';
+import 'package:edu_ecommerce_fb_2/screens/image_upload.dart';
 import 'package:edu_ecommerce_fb_2/services/auth_service.dart';
 import 'package:edu_ecommerce_fb_2/services/chat_service.dart';
 import 'package:edu_ecommerce_fb_2/widgets/base.dart';
@@ -45,11 +46,12 @@ class Application extends StatelessWidget {
                 GlobalWidgetsLocalizations.delegate,
                 GlobalCupertinoLocalizations.delegate,
               ],
-              initialRoute: "/base",
+              initialRoute: "/upload",
               routes: {
                 "/base": (context) => const Base(),
                 "/": (context) => const AuthScreen(),
-                "/messages": (context) => MessagesScreen()
+                "/messages": (context) => MessagesScreen(),
+                "/upload" :(context) => ImageUploader()
               },
               navigatorObservers: [routeObserver],
             );
